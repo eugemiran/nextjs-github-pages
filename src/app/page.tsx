@@ -4,8 +4,14 @@ import styles from './page.module.css'
 import { useEffect, useState } from 'react'
 import httpClient from '@/httpClient'
 
+type Character = {
+  id: number;
+  name: string;
+  status: string;
+}
+
 export default function Home() {
-  const [characters, setCharacters] = useState();
+  const [characters, setCharacters] = useState<Array<Character>|undefined>();
 
   const fetchCharacters = async () => {
     const result = await httpClient.get('/character');
@@ -27,7 +33,7 @@ export default function Home() {
         </p>
         <div>
           <div className={styles.characters}>   
-            {characters.map(({ id, name, status }) => (
+            {characters?.map(({ id, name, status }) => (
               <div className={styles.character} key={id}>
                 <p>{id}</p>
                 <p>{name}</p>

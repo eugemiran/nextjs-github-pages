@@ -1,5 +1,5 @@
-const applyInterceptors = (client) => {
-  client.interceptors.request.use((config) => {
+const applyInterceptors = (client: any) => {
+  client.interceptors.request.use((config: any) => {
     const { headers } = config
     config.headers = {
       ...headers,
@@ -9,11 +9,11 @@ const applyInterceptors = (client) => {
   })
 
   client.interceptors.response.use(
-    async (response) => {
+    async (response: any) => {
         // console.log(response)
       return response
     },
-    (error) => Promise.reject(error)
+    (error: any) => Promise.reject(error)
   )
 }
 
