@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import { useEffect, useState } from 'react'
 import httpClient from '@/httpClient'
+import Link from 'next/link'
 
 type Character = {
   id: number;
@@ -34,11 +35,11 @@ export default function Home() {
         <div>
           <div className={styles.characters}>   
             {characters?.map(({ id, name, status }) => (
-              <div className={styles.character} key={id}>
+              <Link href={"/character"} className={styles.character} key={id}>
                 <p>{id}</p>
                 <p>{name}</p>
                 <p>{status}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
