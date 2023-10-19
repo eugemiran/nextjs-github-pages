@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import styles from './page.module.css'
+import styles from './page.module.scss'
 import { useEffect, useState } from 'react'
 import httpClient from '@/httpClient'
 import Link from 'next/link'
